@@ -1,0 +1,5 @@
+-   `app/` — роутинг Next.js
+-   `entities/` — бизнес-сущности (user, game)
+-   `features/` — самостоятельные фичи (auth, profile)
+-   `widgets/` — композитные блоки из фич
+-   `shared/` — переиспользуемый код

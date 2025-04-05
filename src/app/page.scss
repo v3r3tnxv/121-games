@@ -1,0 +1,19 @@
+@import "./styles/animations";
+@import "./styles/mixins";
+@import "./styles/variables";
+
+.page {
+    display: grid;
+    padding: 36px 16px 16px 16px;
+
+    .page__content {
+        display: grid;
+        justify-self: center;
+        max-width: 430px;
+        width: 100%;
+        height: max-content;
+        background: $gradient-accent-secondary;
+        border-radius: 64px;
+        margin-bottom: calc(96px);
+    }
+}

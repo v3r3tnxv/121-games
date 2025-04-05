@@ -1,0 +1,20 @@
+@import "@/app/styles/animations";
+@import "@/app/styles/mixins";
+@import "@/app/styles/variables";
+
+.title {
+    display: grid;
+    align-content: center;
+    height: 80px;
+    padding: 16px;
+    color: $color-accent;
+}
+
+.text {
+    display: grid;
+    gap: 16px;
+    background: $gradient-accent-secondary;
+    border-radius: 48px 48px 0 0;
+    padding: 48px 32px;
+    color: $font-black;
+}

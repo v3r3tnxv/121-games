@@ -1,0 +1,37 @@
+@import "@/app/styles/animations";
+@import "@/app/styles/mixins";
+@import "@/app/styles/variables";
+
+.plate {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    border-radius: 16px;
+
+    background: linear-gradient(
+        205deg,
+        rgba(175, 209, 255, 0.7) 0%,
+        rgba(254, 248, 255, 0.7) 100%
+    );
+    box-shadow: 2px 4px 12px #0001;
+    backdrop-filter: blur(16px);
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+}
+
+// .plate::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: linear-gradient(
+//         135deg,
+//         rgba(255, 255, 255, 1) 0%,
+//         rgba(255, 0, 0, 0.893) 100%
+//     );
+//     background-size: 100% 100%;
+//     border-radius: 16px;
+//     z-index: -1;
+// }

@@ -1,0 +1,46 @@
+@import "@/app/styles/animations";
+@import "@/app/styles/mixins";
+@import "@/app/styles/variables";
+
+.navbar {
+    display: grid;
+    width: 100%;
+    max-width: 432px;
+    height: calc(64px + 32px);
+    grid-template-columns: repeat(4, min-content);
+    background: $color-black;
+    justify-content: space-around;
+    justify-self: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+
+    .navbar__link {
+        display: grid;
+        place-items: center;
+        height: 64px;
+        width: 64px;
+        padding: 8px;
+
+        &:hover,
+        :active {
+            filter: opacity(0.5) drop-shadow(0 0 15px $color-accent)
+                drop-shadow(0 0 30px $color-accent);
+        }
+
+        .navbar__icon {
+            height: 32px;
+            width: 32px;
+            fill: white;
+        }
+
+        .navbar__icon--active {
+            fill: $color-accent !important;
+            filter: drop-shadow(0 0 15px $color-accent)
+                drop-shadow(0 0 30px $color-accent);
+        }
+    }
+
+    @media (max-width: 768px) {
+    }
+}
