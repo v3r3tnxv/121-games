@@ -1,10 +1,9 @@
 import { PlateProps } from './types';
-import "./Plate.scss";
+import styles from "./Plate.module.scss";
 
-export const Plate = ({ children }: PlateProps) => {
-
+export const Plate = ({ className, children }: PlateProps) => {
     return (
-        <div className="plate">
+        <div className={`${styles.plate} ${className}`}>
             {children}
         </div>
     );

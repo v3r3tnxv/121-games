@@ -1,3 +1,4 @@
+// entities/tansaction/model/types.ts
 export type TransactionType = 'deposit' | 'withdrawal' | 'change';
 export type TransactionStatus = 'pending' | 'completed' | 'failed';
 

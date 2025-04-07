@@ -1,13 +1,13 @@
 "use client"
 
 import { UserAvatar, useProfile } from "@/entities/user";
-import { Button, Plate } from "@/shared/ui";
-import Image from "next/image";
 import { Switcher } from "@/features/switcher";
+import { Button, Plate } from "@/shared/ui";
+import { GameHistory } from "@/widgets/game-history";
 import { ReferralLink } from "@/widgets/referral-link";
 import { TransactionHistory } from "@/widgets/transaction-history";
-import { GameHistory } from "@/widgets/game-history";
-import "./Profile.scss"
+import Image from "next/image";
+import "./Profile.scss";
 
 const ProfilePage = () => {
     const { user } = useProfile();

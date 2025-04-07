@@ -7,7 +7,7 @@ export const ModalLeaderboard = () => {
             <h2 className={styles.title}>Рейтинговая таблица</h2>
             <p className={styles.text}>
                 <span>Выигрывай и будь первым!</span>
-                <span>В таблице отображаются 30 игроков с самым большим колдичеством выигршей</span>
+                <span>В таблице отображаются игроки с самым большим количеством побед.</span>
             </p>
         </>
     );

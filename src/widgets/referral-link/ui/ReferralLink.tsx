@@ -1,8 +1,8 @@
 import { InfoButton } from '@/shared/ui';
 import { ReferralLinkProps } from '../model/types';
-import "./ReferralLink.scss";
 import Image from 'next/image';
 import { useModal } from '@/widgets/modal';
+import "./ReferralLink.scss";
 
 export const ReferralLink = ({ className }: ReferralLinkProps) => {
     const { openModal } = useModal();
