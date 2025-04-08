@@ -1,0 +1,47 @@
+@import "@/app/styles/animations";
+@import "@/app/styles/mixins";
+@import "@/app/styles/variables";
+
+.dailies {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+    padding: 64px 16px;
+
+    &__header {
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        place-items: center;
+        place-content: center;
+        gap: 16px;
+        height: 80px;
+        font-size: 40px;
+        font-weight: 600;
+        border-radius: 64px;
+        color: $color-accent;
+    }
+
+    &__claim {
+        width: max-content;
+        height: 48px;
+        padding: 8px 48px;
+    }
+
+    &__invite {
+        margin-top: 16px;
+    }
+
+    &__title {
+        margin-top: 16px;
+    }
+
+    &__quest {
+        display: grid;
+        align-items: center;
+        grid-template-columns: max-content auto max-content;
+        gap: 16px;
+        height: 48px;
+        border-radius: 64px;
+        padding: 0 16px;
+    }
+}

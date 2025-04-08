@@ -4,7 +4,6 @@ import { UserAvatar, useProfile } from "@/entities/user";
 import { InfoButton, Plate } from "@/shared/ui";
 import { useModal } from "@/widgets/modal";
 import styles from "./Leaderboard.module.scss"
-import Image from 'next/image';
 
 const LeaderboardPage = () => {
     const { user } = useProfile();
