@@ -6,7 +6,7 @@ export const ModalDailies = () => {
         <>
             <h2 className={styles.title}>Ежедневные награды</h2>
             <p className={styles.text}>
-                <span>Захордите в игру каждый день и получайте ценные награды!</span>
+                <span>Заходите в игру каждый день и получайте ценные награды!</span>
                 <span>Таймер обновляется каждые 23 часа.</span>
             </p>
         </>

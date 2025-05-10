@@ -1,3 +1,4 @@
+// widgets/tansaction-history/model/types.ts
 import { Transaction } from "@/entities/transaction";
 
 export type TransactionHistoryProps = {

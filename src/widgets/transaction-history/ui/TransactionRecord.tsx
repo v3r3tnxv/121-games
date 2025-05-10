@@ -1,3 +1,4 @@
+// widgets/tansaction-history/ui.TransactionRecord.tsx
 import { TransactionRecordProps } from '../model/types';
 import "./TransactionRecord.scss";
 import Image from 'next/image';

@@ -1,10 +1,11 @@
 import { PlateProps } from './types';
-import "./Plate.scss";
+import styles from "./Plate.module.scss";
 
-export const Plate = ({ children }: PlateProps) => {
+export const Plate = ({ className, children, rounded = "normal" }: PlateProps) => {
+    const roundedClass = styles[`plate--${rounded}`];
 
     return (
-        <div className="plate">
+        <div className={`${styles.plate} ${roundedClass} ${className}`}>
             {children}
         </div>
     );

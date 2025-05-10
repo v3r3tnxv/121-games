@@ -1,0 +1,10 @@
+@import "@/app/styles/animations";
+@import "@/app/styles/mixins";
+@import "@/app/styles/variables";
+
+.games {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+    padding: 64px 16px;
+}
