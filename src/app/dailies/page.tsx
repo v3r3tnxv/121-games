@@ -15,7 +15,7 @@ const DailiesPage = () => {
 
     return (
         <div className={styles.dailies}>
-            <Plate className={styles.dailies__header}>
+            <Plate className={styles.dailies__header} rounded="full">
                 <Timer />
                 <InfoButton onClick={handleClick} />
             </Plate>
@@ -35,7 +35,7 @@ const DailiesPage = () => {
 
             <h2 className={styles.dailies__title}>Ежедневные задания</h2>
 
-            <Plate className={styles.dailies__quest}>
+            <Plate className={styles.dailies__quest} rounded="full">
                 <Image
                     src={"/icons/crypto.svg"}
                     alt={""}
@@ -50,7 +50,8 @@ const DailiesPage = () => {
                     height={0}
                 />
             </Plate>
-            <Plate className={styles.dailies__quest}>
+
+            <Plate className={styles.dailies__quest} rounded="full">
                 <Image
                     src={"/icons/crypto.svg"}
                     alt={""}
@@ -65,7 +66,8 @@ const DailiesPage = () => {
                     height={0}
                 />
             </Plate>
-            <Plate className={styles.dailies__quest}>
+
+            <Plate className={styles.dailies__quest} rounded="full">
                 <Image
                     src={"/icons/crypto.svg"}
                     alt={""}

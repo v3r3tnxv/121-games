@@ -15,7 +15,7 @@ const LeaderboardPage = () => {
 
     return (
         <div className={styles.leaderboard}>
-            <Plate className={styles.leaderboard__plate}>
+            <Plate className={styles.leaderboard__plate} rounded="full">
                 Топ игроки <InfoButton onClick={handleClick} />
             </Plate>
             <p className={styles.leaderboard__description}>30 лучших игроков</p>
