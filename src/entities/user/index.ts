@@ -1,3 +1,3 @@
-export * from "./model/types";
-export * from "./model/hooks/useProfile";
-export * from "./ui/UserAvatar";
+export * from './api';
+export * from './model';
+export * from './ui';

@@ -1,0 +1,65 @@
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
+
+.dailies {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+
+    .header {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        place-items: center;
+        place-content: center;
+        gap: 16px;
+        width: max-content;
+        height: 80px;
+        margin-top: 32px;
+        padding: 16px 32px;
+        font-size: 40px;
+        font-weight: 600;
+        color: $color-accent;
+        z-index: 10;
+    }
+
+    .collectButton {
+        width: max-content;
+        height: 48px;
+        padding: 8px 48px;
+    }
+
+    .invite {
+        margin-top: 16px;
+        padding: 0 16px;
+
+        .label {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+    }
+
+    .questsWraper {
+        display: grid;
+        gap: 8px;
+        margin-top: 16px;
+        padding: 16px;
+        box-shadow: none;
+
+        .title {
+            justify-self: center;
+            padding: 16px;
+        }
+
+        .quest {
+            display: grid;
+            align-items: center;
+            grid-template-columns: max-content auto max-content;
+            gap: 16px;
+            height: 48px;
+            border-radius: 64px;
+            padding: 0 16px;
+        }
+    }
+}

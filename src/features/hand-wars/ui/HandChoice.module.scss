@@ -1,0 +1,40 @@
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
+
+.plate {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    justify-content: space-around;
+}
+
+.button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    .icon {
+        width: 64px;
+        color: rgba($color-accent, 0.2);
+        @include interactive-behavior(0.96, 1.02, 0.3s);
+    }
+
+    &.active {
+        filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.15));
+    }
+}
+
+.action {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    justify-self: center;
+    gap: 8px;
+}
+
+.chooseButton:disabled {
+    cursor: not-allowed;
+    @include interactive-behavior(1, 1, 0s);
+    background-color: rgba($color-accent, 0.5);
+}

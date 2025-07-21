@@ -1,9 +1,7 @@
-// Ошибки страницы
+'use client';
 
-"use client";
-
-import { Button } from "@/shared/ui/button";
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import { Button } from '@/shared/ui/button';
 
 export default function Error({ error, reset }: { error: Error; reset: () => void }) {
     useEffect(() => {
@@ -11,20 +9,10 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
     }, [error]);
 
     return (
-        <div style={{
-            display: "grid",
-            gap: "16px",
-            padding: "16px",
-        }}>
-            <h1 style={{
-                color: "rgb(255, 59, 48)",
-            }}>Ошибка</h1>
-            <p style={{ color: "rgb(255, 59, 48)" }}>Произошла ошибка при загрузке страницы.</p>
-            <Button
-                onClick={() => reset()}
-                className=""
-                label="Попробовать снова"
-            />
+        <div>
+            <h1>Ошибка</h1>
+            <p>Произошла ошибка при загрузке страницы.</p>
+            <Button onClick={() => reset()} className="" label="Попробовать снова" />
         </div>
     );
 }

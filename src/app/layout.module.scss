@@ -1,0 +1,35 @@
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
+
+.layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    padding: 36px 16px 16px 16px;
+
+    &::before {
+        content: '';
+        top: 0;
+        left: 0;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: $background-accent;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .content {
+        position: relative;
+        display: grid;
+        justify-self: center;
+        max-width: 432px;
+        width: 100%;
+        height: max-content;
+        background: $gradient-accent-secondary;
+        border-radius: 48px;
+        margin-bottom: calc(64px + 16px);
+        z-index: 2;
+    }
+}

@@ -1,0 +1,67 @@
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
+
+.wrapper {
+    position: relative;
+    width: 190px;
+    height: 190px;
+
+    .chest {
+        position: relative;
+        z-index: 2;
+    }
+
+    .raysContainer {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        top: 50%;
+        left: 50%;
+        width: 190px;
+        height: 190px;
+        transform: translate(-50%, -50%);
+        animation: rotateContainer 16s linear infinite;
+        pointer-events: none;
+        z-index: 1;
+
+        .ray {
+            position: absolute;
+            width: 96px;
+            height: 96px;
+            clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 25% 100%);
+            transform-origin: center;
+            background: linear-gradient(
+                to top,
+                rgba(255, 255, 255, 1) 0%,
+                rgba(255, 255, 255, 0) 100%
+            );
+        }
+
+        /* Расставляем 5 лучей по кругу */
+        .ray:nth-child(1) {
+            transform: rotate(0deg) translateY(-90px);
+        }
+        .ray:nth-child(2) {
+            transform: rotate(72deg) translateY(-90px);
+        }
+        .ray:nth-child(3) {
+            transform: rotate(144deg) translateY(-90px);
+        }
+        .ray:nth-child(4) {
+            transform: rotate(216deg) translateY(-90px);
+        }
+        .ray:nth-child(5) {
+            transform: rotate(288deg) translateY(-90px);
+        }
+    }
+}
+
+@keyframes rotateContainer {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}

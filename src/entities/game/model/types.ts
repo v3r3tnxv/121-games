@@ -1,11 +1,15 @@
+// entities/game/model/gameModes.ts
+export const gameModes = ['Онлайн', 'Оффлайн'] as const;
+
+export type GameMode = (typeof gameModes)[number];
+
 export interface Game {
-    id: string;
-    amount: number;
-    currency: string;
-    type: string;
-    status: string;
-    // type: "deposit" | "withdrawal" | "change";
-    // status: "pending" | "completed" | "failed";
-    date: string;
-    time: string;
+    id: number;
+    name: string;
+    description: string;
+    image: string;
+}
+
+export interface ApiResponse<T> {
+    data: T;
 }

@@ -1,13 +1,16 @@
-// entities/tansaction/model/types.ts
-export type TransactionType = 'deposit' | 'withdrawal' | 'change';
-export type TransactionStatus = 'pending' | 'completed' | 'failed';
-
+// entities/transaction/model/types.ts
 export interface Transaction {
     id: string;
+    gameId: number;
+    matchType: number;
+    maxPlayer: number;
+    startTime: string;
+    winnerId: number;
+    lifetime: string;
+    price: number;
+    type: number;
+    status: number;
+    createdAt: string;
+    updatedAt: string;
     amount: number;
-    currency: string;
-    type: TransactionType;
-    status: TransactionStatus;
-    date: string;
-    time: string;
 }

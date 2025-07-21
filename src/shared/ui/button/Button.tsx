@@ -1,5 +1,6 @@
+import clsx from 'clsx';
+import styles from './Button.module.scss';
 import { ButtonProps } from './types';
-import "./Button.scss";
 
 export const Button = ({
     label,
@@ -10,10 +11,11 @@ export const Button = ({
     className,
     ...props
 }: ButtonProps) => {
+    const variantClass = styles[`button${variant[0].toUpperCase() + variant.slice(1)}`];
 
     return (
         <button
-            className={`button button--${variant} ${className || ''}`} // Добавляем переданный класс
+            className={clsx(styles.button, variantClass, className)}
             onClick={onClick}
             disabled={disabled}
             {...props}

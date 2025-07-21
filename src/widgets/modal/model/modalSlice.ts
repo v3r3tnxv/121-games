@@ -1,11 +1,11 @@
 // modalSlice.ts
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ModalType } from "./types";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { ModalType } from './types';
 
 export interface ModalState {
     isOpen: boolean;
     modalType: ModalType;
-    modalData?: any;
+    modalData?: unknown;
 }
 
 export const initialState: ModalState = {
@@ -18,7 +18,7 @@ const modalSlice = createSlice({
     name: 'modal',
     initialState,
     reducers: {
-        openModal: (state, action: PayloadAction<{ type: ModalType, data?: any }>) => {
+        openModal: (state, action: PayloadAction<{ type: ModalType; data?: unknown }>) => {
             state.isOpen = true;
             state.modalType = action.payload.type;
             state.modalData = action.payload.data;

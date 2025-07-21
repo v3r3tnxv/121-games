@@ -1,0 +1,28 @@
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
+
+.infoButton {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 4px;
+    place-content: center;
+    height: 36px;
+    width: 36px;
+    border: none;
+    border-radius: 64px;
+    color: $color-white;
+    font-weight: 600;
+    font-size: 16px;
+    background: $color-accent;
+    @include interactive-behavior(0.96, 1.2, 0.3s);
+
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+}
+
+.button--primary {
+    background: $color-accent;
+}

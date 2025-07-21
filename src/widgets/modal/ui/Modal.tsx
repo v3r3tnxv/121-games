@@ -1,17 +1,19 @@
-"use client";
+'use client';
+
 // Modal.tsx
-import { useState, useEffect } from "react";
-import { ModalBank } from './ModalBank';
-import { ModalProps } from "../model/types"
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import clsx from 'clsx';
+import { ModalProps } from '../model/types';
 import { useModal } from '../model/useModal';
+import styles from './Modal.module.scss';
+import { ModalBank } from './ModalBank';
 import { ModalDailies } from './ModalDailies';
-import { ModalDice } from './ModalDice';
+import { ModalFortuneDice } from './ModalFortuneDice';
 import { ModalGame } from './ModalGame';
 import { ModalHandWars } from './ModalHandWars';
 import { ModalLeaderboard } from './ModalLeaderboard';
 import { ModalReferral } from './ModalReferral';
-import Image from 'next/image';
-import styles from './Modal.module.scss';
 
 export const Modal: React.FC<ModalProps> = ({ className }) => {
     const { isOpen, modalType, closeModal } = useModal();
@@ -26,6 +28,17 @@ export const Modal: React.FC<ModalProps> = ({ className }) => {
         }
     }, [isOpen]);
 
+    // Запрещаем скролл за открытой модалкой
+    useEffect(() => {
+        if (isMounted) {
+            document.body.style.overflow = 'hidden';
+        }
+
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMounted]);
+
     const handleClose = () => {
         setIsClosing(true);
         setTimeout(() => {
@@ -38,25 +51,46 @@ export const Modal: React.FC<ModalProps> = ({ className }) => {
 
     const renderContent = () => {
         switch (modalType) {
-            case 'bank_info': return <ModalBank />;
-            case 'dailies_info': return <ModalDailies />;
-            case 'dice_info': return <ModalDice />;
-            case 'game_info': return <ModalGame />;
-            case 'hand_wars_info': return <ModalHandWars />;
-            case 'leaderboard_info': return <ModalLeaderboard />;
-            case 'referral_info': return <ModalReferral />;
-            default: return null;
+            case 'bank_info':
+                return <ModalBank />;
+            case 'dailies_info':
+                return <ModalDailies />;
+            case 'fortune_dice_info':
+                return <ModalFortuneDice />;
+            case 'game_info':
+                return <ModalGame />;
+            case 'hand_wars_info':
+                return <ModalHandWars />;
+            case 'leaderboard_info':
+                return <ModalLeaderboard />;
+            case 'referral_info':
+                return <ModalReferral />;
+            default:
+                return null;
         }
     };
 
     return (
-        <div className={`${styles.overlay} ${className?.overlay} ${isClosing ? styles.closeAnimation : styles.openAnimation}`} onClick={handleClose}>
-            <div className={`${styles.modal} ${className?.modal}`} onClick={(e) => e.stopPropagation()}>
-                <button className={`${styles.closeBtn} ${className?.closeBtn}`} onClick={handleClose}>
+        <div
+            className={clsx(
+                styles.overlay,
+                className?.overlay,
+                isClosing ? styles.closeAnimation : styles.openAnimation
+            )}
+            onClick={handleClose}
+        >
+            <div
+                className={clsx(styles.modal, className?.modal)}
+                onClick={(e) => e.stopPropagation()}
+            >
+                <button
+                    className={clsx(styles.closeButton, className?.closeButton)}
+                    onClick={handleClose}
+                >
                     <Image
-                        className={styles.closeBtnIcon}
-                        src={"/icons/close.svg"}
-                        alt={"Закрыть"}
+                        className={styles.icon}
+                        src={'/icons/close.svg'}
+                        alt={'Закрыть'}
                         width={16}
                         height={16}
                     />
@@ -66,4 +100,3 @@ export const Modal: React.FC<ModalProps> = ({ className }) => {
         </div>
     );
 };
-
