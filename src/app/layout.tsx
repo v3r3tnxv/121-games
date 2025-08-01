@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import '@/shared/styles/global.scss';
 import { Modal } from '@/widgets/modal';
 import { Navbar } from '@/widgets/navbar';
-import { StoreProvider } from '../shared/lib/providers';
+import { ReactQueryProvider, StoreProvider } from '../shared/lib/providers';
 import styles from './layout.module.scss';
 
 const geistSans = Geist({
@@ -37,9 +37,11 @@ export default function RootLayout({
         <html lang="ru" suppressHydrationWarning>
             <body className={`${styles.layout} ${geistSans.variable} ${geistMono.variable}`}>
                 <StoreProvider>
-                    <main className={styles.content}>{children}</main>
-                    <Navbar />
-                    <Modal />
+                    <ReactQueryProvider>
+                        <main className={styles.content}>{children}</main>
+                        <Navbar />
+                        <Modal />
+                    </ReactQueryProvider>
                 </StoreProvider>
             </body>
         </html>

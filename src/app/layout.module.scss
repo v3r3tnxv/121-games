@@ -5,7 +5,6 @@
 .layout {
     position: relative;
     z-index: 1;
-    display: grid;
     padding: 36px 16px 16px 16px;
 
     &::before {
@@ -24,12 +23,19 @@
         position: relative;
         display: grid;
         justify-self: center;
+        align-items: start;
         max-width: 432px;
         width: 100%;
-        height: max-content;
+        height: calc(100vh - 96px - 36px);
+        padding-bottom: 21px;
         background: $gradient-accent-secondary;
         border-radius: 48px;
-        margin-bottom: calc(64px + 16px);
         z-index: 2;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
