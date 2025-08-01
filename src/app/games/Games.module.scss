@@ -1,10 +1,13 @@
-@import "@/app/styles/animations";
-@import "@/app/styles/mixins";
-@import "@/app/styles/variables";
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
 
 .games {
     display: grid;
-    justify-items: center;
-    gap: 16px;
-    padding: 64px 16px;
+    gap: 32px;
+    padding: 16px;
+
+    .title {
+        justify-self: center;
+    }
 }

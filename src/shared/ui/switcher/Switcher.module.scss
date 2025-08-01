@@ -1,0 +1,41 @@
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
+
+.switcher {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: max-content;
+    gap: 16px;
+
+    .switches {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        justify-content: center;
+        gap: 8px;
+
+        .active {
+            border-color: $color-accent;
+            color: $color-accent;
+            // filter: drop-shadow(0 0 8px $color-accent);
+        }
+    }
+
+    .content {
+    }
+}
+
+@media (max-width: 768px) {
+    .profile {
+        .history {
+            .historySwitcher {
+                .action {
+                    .button {
+                        padding: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

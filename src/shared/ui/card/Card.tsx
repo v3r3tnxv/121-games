@@ -1,14 +1,11 @@
-import { Plate } from "@/shared/ui/plate";
+import { Plate } from '@/shared/ui/plate';
+import styles from './Card.module.scss';
 import { CardProps } from './types';
-import "./Card.scss";
 
 export const Card = ({ children }: CardProps) => {
-
     return (
-        <div className="card">
-            <Plate>
-                {children}
-            </Plate>
+        <div className={styles.card}>
+            <Plate>{children}</Plate>
         </div>
     );
 };

@@ -1,0 +1,1 @@
+export { setTransactions } from './transactionSlice';

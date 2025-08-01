@@ -5,14 +5,14 @@ export interface ModalProps {
     className?: {
         overlay?: string;
         modal?: string;
-        closeBtn?: string;
+        closeButton?: string;
     };
 }
 
 export type ModalType =
     | 'bank_info'
     | 'dailies_info'
-    | 'dice_info'
+    | 'fortune_dice_info'
     | 'game_info'
     | 'hand_wars_info'
     | 'leaderboard_info'

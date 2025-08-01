@@ -1,0 +1,41 @@
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
+
+.layout {
+    position: relative;
+    z-index: 1;
+    padding: 36px 16px 16px 16px;
+
+    &::before {
+        content: '';
+        top: 0;
+        left: 0;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background: $background-accent;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .content {
+        position: relative;
+        display: grid;
+        justify-self: center;
+        align-items: start;
+        max-width: 432px;
+        width: 100%;
+        height: calc(100vh - 96px - 36px);
+        padding-bottom: 21px;
+        background: $gradient-accent-secondary;
+        border-radius: 48px;
+        z-index: 2;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
+
+.button {
+    /* базовый стиль */
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    @include interactive-behavior(1, 1, 0s);
+    background-color: rgba($color-accent, 0.5);
+}
+
+.loading {
+    cursor: not-allowed;
+    @include interactive-behavior(1, 1, 0s);
+    background-color: rgba($color-accent, 0.5);
+}
+
+.collected {
+}

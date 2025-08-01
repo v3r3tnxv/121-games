@@ -1,6 +1,6 @@
-@import "@/app/styles/animations";
-@import "@/app/styles/mixins";
-@import "@/app/styles/variables";
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
 
 .overlay {
     position: fixed;
@@ -23,16 +23,16 @@
         align-self: end;
         max-width: calc(430px + 32px);
         width: calc(100%);
-        min-width: calc(430px + 32px);
+        min-width: calc(375px);
         height: max-content;
         min-height: 20%;
-        padding: 0 16px;
+        padding: 0 8px;
         border-radius: 48px 48px 0 0;
-        margin-bottom: calc(96px);
+        // margin-bottom: calc(96px);
         background: linear-gradient(180deg, #1e0e3a, #1f1b26);
         cursor: auto;
 
-        .closeBtn {
+        .closeButton {
             position: absolute;
             width: 80px;
             height: 80px;
@@ -41,9 +41,6 @@
             background: none;
             border: none;
             cursor: pointer;
-
-            .closeBtnIcon {
-            }
         }
     }
 }

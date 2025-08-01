@@ -1,6 +1,6 @@
-@import "@/app/styles/animations";
-@import "@/app/styles/mixins";
-@import "@/app/styles/variables";
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
 
 .title {
     display: grid;

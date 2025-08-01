@@ -1,0 +1,27 @@
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
+
+.gameList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: max-content;
+    gap: 16px;
+
+    .plate {
+        aspect-ratio: 1 / 1;
+        display: grid;
+        @include interactive-behavior(0.96, 1.02, 0.3s);
+
+        .icon {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+
+        .label {
+            justify-self: center;
+            align-self: end;
+            color: $color-accent;
+        }
+    }
+}

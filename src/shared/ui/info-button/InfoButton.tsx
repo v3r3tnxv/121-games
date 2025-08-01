@@ -1,20 +1,14 @@
-import { InfoButtonProps } from './types';
-import "./InfoButton.scss";
 import Image from 'next/image';
+import clsx from 'clsx';
+import styles from './InfoButton.module.scss';
+import { InfoButtonProps } from './types';
 
-export const InfoButton = ({
-    onClick,
-    className
-}: InfoButtonProps) => {
-
+export const InfoButton = ({ onClick, className }: InfoButtonProps) => {
     return (
-        <button
-            className={`info-button ${className}`}
-            onClick={onClick}
-        >
+        <button className={clsx(styles.infoButton, className)} onClick={onClick}>
             <Image
-                className={"info-button__image"}
-                src={"/icons/info.svg"}
+                className={styles.image}
+                src={'/icons/info.svg'}
                 alt="Подробнее"
                 width={24}
                 height={24}

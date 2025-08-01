@@ -1,34 +1,38 @@
-import { InfoButton } from '@/shared/ui';
-import { ReferralLinkProps } from '../model/types';
+'use client';
+
 import Image from 'next/image';
+import clsx from 'clsx';
+import { InfoButton } from '@/shared/ui';
 import { useModal } from '@/widgets/modal';
-import "./ReferralLink.scss";
+import { ReferralLinkProps } from '../model/types';
+import styles from './ReferralLink.module.scss';
 
 export const ReferralLink = ({ className }: ReferralLinkProps) => {
     const { openModal } = useModal();
 
-    const handleClick = () => {
-        openModal('referral_info');  // Открытие модалки с типом 'bank-info'
-    };
-
     return (
-        <div className='referral-link__wrapper'>
-            <div className={`referral-link ${className}`}>
+        <div className={styles.wrapper}>
+            <div className={clsx(styles.link, className)}>
                 <input
-                    className="referral-link__input"
+                    className={styles.input}
                     type="text"
-                    value={"https://referral-link_121_test_user"}
+                    value="https://referral-link_121_test_user"
                     readOnly
+                    aria-label="Реферальная ссылка"
                 />
+
                 <Image
-                    className="referral-link__copy"
-                    src={"/icons/copy.svg"}
-                    alt={"Копировать"}
+                    className={styles.copy}
+                    src="/icons/copy.svg"
+                    alt="Копировать"
                     width={16}
                     height={16}
                 />
             </div>
-            <InfoButton className='info-button--blue' onClick={handleClick} />
+            <InfoButton
+                className={styles.infoButtonBlue}
+                onClick={() => openModal('referral_info')}
+            />
         </div>
     );
 };

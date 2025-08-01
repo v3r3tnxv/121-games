@@ -1,46 +1,106 @@
-@import "@/app/styles/animations";
-@import "@/app/styles/mixins";
-@import "@/app/styles/variables";
+@use '@/shared/styles/animations';
+@use '@/shared/styles/mixins' as *;
+@use '@/shared/styles/variables' as *;
 
 .navbar {
+    position: fixed;
     display: grid;
+    bottom: 0;
     width: 100%;
     max-width: 432px;
     height: calc(64px + 32px);
+    padding: 0 16px;
     grid-template-columns: repeat(4, min-content);
-    background: $color-black;
-    justify-content: space-around;
+    grid-template-rows: 0 1fr;
+    justify-content: space-between;
     justify-self: center;
-    position: fixed;
-    bottom: 0;
+    align-items: end;
     z-index: 999;
+    background: black;
 
-    .navbar__link {
-        display: grid;
-        place-items: center;
+    .indicator {
+        content: '';
+        position: absolute;
+        background: black;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    }
+
+    // Первый индикатор (для первой ссылки)
+    .indicator--first {
+        top: -58px;
+        left: 0px;
+        width: 100px;
+        height: 59px;
+        clip-path: path(
+            'M 0 0 C 0 21.539 17.461 39 39 39 H 50.098 C 59.407 39 68.314 42.791 74.767 49.5 V 49.5 C 81.22 56.209 90.128 60 99.436 60 H 0 Z'
+        );
+    }
+
+    // Второй индикатор (для второй и третьей ссылки)
+    .indicator--middle {
+        top: -20.5px;
+        width: 140px;
         height: 64px;
+        clip-path: path(
+            'M 0 21 C 11.872 21 20.78 17.209 27.233 10.5 V 10.5 C 33.686 3.791 42.593 0 51.902 0 H 88.098 C 97.407 0 106.314 3.791 112.767 10.5 V 10.5 C 119.22 17.209 128.128 21 140 21 Z'
+        );
+    }
+
+    // Третий индикатор (для четвертой ссылки)
+    .indicator--last {
+        top: -58px;
+        right: 0;
+        width: 100px;
+        height: 59px;
+        clip-path: path(
+            'M 100 0 C 100 21.539 82.539 39 61 39 H 49.902 C 40.593 39 31.686 42.791 25.233 49.5 V 49.5 C 18.78 56.209 9.872 60 0.564 60 H 100 Z'
+        );
+    }
+
+    // M 100 0 C 100 21.539 82.539 39 61 39 H 49.902 C 40.593 39 31.686 42.791 25.233 49.5 V 49.5 C 18.78 56.209 9.872 60 0.564 60 H 100 Z
+
+    .link {
+        display: grid;
+        grid-row: 2;
+        place-items: center;
+        height: 100%;
         width: 64px;
-        padding: 8px;
+        padding: 16px;
+        padding-bottom: 32px;
+        position: relative;
+        text-decoration: none;
 
-        &:hover,
-        :active {
-            filter: opacity(0.5) drop-shadow(0 0 15px $color-accent)
-                drop-shadow(0 0 30px $color-accent);
-        }
+        // неоновая подсветка
+        // &:hover,
+        // &:active {
+        //     filter: opacity(0.5) drop-shadow(0 0 15px $color-accent)
+        //         drop-shadow(0 0 30px $color-accent);
+        // }
 
-        .navbar__icon {
+        .icon {
             height: 32px;
             width: 32px;
             fill: white;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
         }
 
-        .navbar__icon--active {
+        .icon--active {
             fill: $color-accent !important;
-            filter: drop-shadow(0 0 15px $color-accent)
-                drop-shadow(0 0 30px $color-accent);
         }
-    }
 
-    @media (max-width: 768px) {
+        // Показываем индикатор только для активной ссылки
+        &.active {
+            .indicator {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+                transition: all 0.3s ease-in-out;
+                transform: translateY(0px);
+            }
+        }
     }
 }

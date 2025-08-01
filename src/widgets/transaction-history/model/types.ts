@@ -1,7 +1,7 @@
-// widgets/tansaction-history/model/types.ts
-import { Transaction } from "@/entities/transaction";
+// widgets/transaction-history/model/types.ts
+import { Transaction } from '@/entities/transaction';
 
-export type TransactionHistoryProps = {
+export type TransactionsHistoryProps = {
     className?: string;
 };
 
