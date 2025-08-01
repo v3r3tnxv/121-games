@@ -9,46 +9,57 @@
     width: 100%;
     max-width: 432px;
     height: calc(64px + 32px);
+    padding: 0 16px;
     grid-template-columns: repeat(4, min-content);
     grid-template-rows: 0 1fr;
-    justify-content: space-around;
+    justify-content: space-between;
     justify-self: center;
     align-items: end;
     z-index: 999;
-    background: #0b090d;
+    background: black;
 
-    .cutout {
+    .indicator {
+        content: '';
         position: absolute;
-        top: calc(-64px + 16px);
-        left: 0px;
-        width: calc(100%);
-        height: 64px;
-        background: none;
-        border-bottom-left-radius: 64px;
-        border-bottom-right-radius: 64px;
-        border: 16px solid #0b090d;
-        border-top: none;
-
-        // Маска: этот блок вырезается
-        -webkit-mask: none;
-        mask: none;
-        -webkit-mask-composite: destination-out;
-        mask-composite: exclude;
-        pointer-events: none;
-
-        &::after {
-            position: absolute;
-            content: '';
-            top: 34px;
-            left: 0;
-            width: 100%;
-            height: 16px;
-            pointer-events: none;
-            border: 8px solid #0b090d;
-            border-top: none;
-            border-bottom: none;
-        }
+        background: black;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
     }
+
+    // Первый индикатор (для первой ссылки)
+    .indicator--first {
+        top: -58px;
+        left: 0px;
+        width: 100px;
+        height: 59px;
+        clip-path: path(
+            'M 0 0 C 0 21.539 17.461 39 39 39 H 50.098 C 59.407 39 68.314 42.791 74.767 49.5 V 49.5 C 81.22 56.209 90.128 60 99.436 60 H 0 Z'
+        );
+    }
+
+    // Второй индикатор (для второй и третьей ссылки)
+    .indicator--middle {
+        top: -20.5px;
+        width: 140px;
+        height: 64px;
+        clip-path: path(
+            'M 0 21 C 11.872 21 20.78 17.209 27.233 10.5 V 10.5 C 33.686 3.791 42.593 0 51.902 0 H 88.098 C 97.407 0 106.314 3.791 112.767 10.5 V 10.5 C 119.22 17.209 128.128 21 140 21 Z'
+        );
+    }
+
+    // Третий индикатор (для четвертой ссылки)
+    .indicator--last {
+        top: -58px;
+        right: 0;
+        width: 100px;
+        height: 59px;
+        clip-path: path(
+            'M 100 0 C 100 21.539 82.539 39 61 39 H 49.902 C 40.593 39 31.686 42.791 25.233 49.5 V 49.5 C 18.78 56.209 9.872 60 0.564 60 H 100 Z'
+        );
+    }
+
+    // M 100 0 C 100 21.539 82.539 39 61 39 H 49.902 C 40.593 39 31.686 42.791 25.233 49.5 V 49.5 C 18.78 56.209 9.872 60 0.564 60 H 100 Z
 
     .link {
         display: grid;
@@ -58,29 +69,38 @@
         width: 64px;
         padding: 16px;
         padding-bottom: 32px;
+        position: relative;
+        text-decoration: none;
 
-        &:hover,
-        :active {
-            filter: opacity(0.5) drop-shadow(0 0 15px $color-accent)
-                drop-shadow(0 0 30px $color-accent);
-        }
+        // неоновая подсветка
+        // &:hover,
+        // &:active {
+        //     filter: opacity(0.5) drop-shadow(0 0 15px $color-accent)
+        //         drop-shadow(0 0 30px $color-accent);
+        // }
 
         .icon {
             height: 32px;
             width: 32px;
             fill: white;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
         }
 
         .icon--active {
             fill: $color-accent !important;
-            filter: drop-shadow(0 0 15px $color-accent) drop-shadow(0 0 30px $color-accent);
         }
-    }
 
-    @media (min-width: 768px) {
-        .cutout {
-            left: -16px;
-            width: calc(100% + 32px);
+        // Показываем индикатор только для активной ссылки
+        &.active {
+            .indicator {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+                transition: all 0.3s ease-in-out;
+                transform: translateY(0px);
+            }
         }
     }
 }
