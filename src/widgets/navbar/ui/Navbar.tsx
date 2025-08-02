@@ -15,6 +15,18 @@ export const Navbar = () => {
 
     if (!mounted) return null;
 
+    // Функция для проверки, является ли ссылка активной
+    const isActiveLink = (href: string) => {
+        // Для главной страницы точное совпадение
+        if (href === '/') {
+            return pathname === '/';
+        }
+
+        // Для остальных путей проверяем, начинается ли текущий путь с href
+        // Например: '/games' будет активным для '/games', '/games/1', '/games/anything'
+        return pathname === href || pathname.startsWith(href + '/');
+    };
+
     // Определяем тип индикатора для каждой ссылки
     const getIndicatorClass = (href: string) => {
         if (href === '/dailies') {
@@ -36,20 +48,22 @@ export const Navbar = () => {
 
     return (
         <nav className={styles.navbar}>
-            {navItems.map((item) => (
-                <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`${styles.link} ${pathname === item.href ? styles.active : ''}`}
-                >
-                    <div className={`${styles.indicator} ${getIndicatorClass(item.href)}`} />
-                    <svg
-                        className={`${styles.icon} ${pathname === item.href ? styles['icon--active'] : ''}`}
+            {navItems.map((item) => {
+                const isActive = isActiveLink(item.href);
+
+                return (
+                    <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`${styles.link} ${isActive ? styles.active : ''}`}
                     >
-                        <use href={item.icon} />
-                    </svg>
-                </Link>
-            ))}
+                        <div className={`${styles.indicator} ${getIndicatorClass(item.href)}`} />
+                        <svg className={`${styles.icon} ${isActive ? styles['icon--active'] : ''}`}>
+                            <use href={item.icon} />
+                        </svg>
+                    </Link>
+                );
+            })}
         </nav>
     );
 };

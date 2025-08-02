@@ -9,19 +9,18 @@
     width: 100%;
     max-width: 432px;
     height: calc(64px + 32px);
-    padding: 0 16px;
-    grid-template-columns: repeat(4, min-content);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 0 1fr;
-    justify-content: space-between;
+    justify-items: center;
     justify-self: center;
     align-items: end;
     z-index: 999;
-    background: black;
+    background: $color-black;
 
     .indicator {
         content: '';
         position: absolute;
-        background: black;
+        background: $color-black;
         opacity: 0;
         visibility: hidden;
         transform: translateY(20px);
@@ -29,12 +28,12 @@
 
     // Первый индикатор (для первой ссылки)
     .indicator--first {
-        top: -58px;
-        left: 0px;
-        width: 100px;
-        height: 59px;
+        top: -59.5px;
+        left: -0.5px;
+        width: 115px;
+        height: 60px;
         clip-path: path(
-            'M 0 0 C 0 21.539 17.461 39 39 39 H 50.098 C 59.407 39 68.314 42.791 74.767 49.5 V 49.5 C 81.22 56.209 90.128 60 99.436 60 H 0 Z'
+            'M 16 0 C 16 21 33 39 55 39 H 66 C 75 39 84 42 90 49 C 97 56 106 60 115 60 H 0 V 0 Z'
         );
     }
 
@@ -44,18 +43,18 @@
         width: 140px;
         height: 64px;
         clip-path: path(
-            'M 0 21 C 11.872 21 20.78 17.209 27.233 10.5 V 10.5 C 33.686 3.791 42.593 0 51.902 0 H 88.098 C 97.407 0 106.314 3.791 112.767 10.5 V 10.5 C 119.22 17.209 128.128 21 140 21 Z'
+            'M 0 21 C 12 21 20 17 27 10 C 33 3 42 0 51 0 H 88 C 97 0 106 3 112 10 C 119 17 128 21 140 21 Z'
         );
     }
 
     // Третий индикатор (для четвертой ссылки)
     .indicator--last {
-        top: -58px;
+        top: -59.5px;
         right: 0;
-        width: 100px;
-        height: 59px;
+        width: 115px;
+        height: 60px;
         clip-path: path(
-            'M 100 0 C 100 21.539 82.539 39 61 39 H 49.902 C 40.593 39 31.686 42.791 25.233 49.5 V 49.5 C 18.78 56.209 9.872 60 0.564 60 H 100 Z'
+            'M 99 0 C 99 21 82 39 60 39 H 49 C 40 39 31 42 25 49 C 18 56 9 60 0 60 H 115 V 0 Z'
         );
     }
 
@@ -66,8 +65,7 @@
         grid-row: 2;
         place-items: center;
         height: 100%;
-        width: 64px;
-        padding: 16px;
+        width: 100%;
         padding-bottom: 32px;
         position: relative;
         text-decoration: none;

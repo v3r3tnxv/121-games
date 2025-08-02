@@ -1,5 +1,5 @@
-import { GamesList } from '@/entities/game';
 import { GameModeSwitcher } from '@/features/switchers/game-mode-switcher';
+import { GamesList } from '@/widgets/games';
 import styles from './Games.module.scss';
 
 const GamesPage = () => {
